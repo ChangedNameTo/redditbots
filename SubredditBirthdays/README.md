@@ -11,6 +11,18 @@ The earliest subreddit after which IDs are consistently incrementing is [/r/234]
 
 Some subreddits are not properly marked as NSFW. This is either the fault of the moderators or, in some cases, the data was collected while the subreddit was brand new.
 
+subreddit_type  
+	0 = public  
+	1 = restricted  
+	2 = private  
+    3 = archived
+
+submission_type  
+	0 = any  
+	1 = link  
+	2 = self  
+	3 = null (banned or private. Use subreddit_type to determine which)
+
 02 November 2014: Finally decided to start measuring subscribers. Numbers will be wrong for quite some time.
 
 07 November 2014: 2009, 2010, and 2011 complete!
