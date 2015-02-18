@@ -21,7 +21,7 @@ submission_type
 	0 = any  
 	1 = link  
 	2 = self  
-	3 = null (banned or private. Use subreddit_type to determine which)
+	3 = null (sub is banned or private)
 
 02 November 2014: Finally decided to start measuring subscribers. Numbers will be wrong for quite some time.
 
