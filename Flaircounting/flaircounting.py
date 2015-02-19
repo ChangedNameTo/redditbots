@@ -6,15 +6,15 @@ import datetime
 
 '''USER CONFIGURATION'''
 
-USERNAME  = ""
+USERNAME  = "XMOBot"
 #This is the bot's Username. In order to send mail, he must have some amount of Karma.
 PASSWORD  = ""
 #This is the bot's Password. 
-USERAGENT = ""
+USERAGENT = "/r/YouDontSurf Flair Counter Bot"
 #This is a short description of what the bot does. For example "/u/GoldenSights' Newsletter bot"
-SUBREDDIT = "Cinemasins"
+SUBREDDIT = "youdontsurf"
 #This is the sub or list of subs to scan for new posts. For a single sub, use "sub1". For multiple subreddits, use "sub1+sub2+sub3+..."
-PRINTFILE = "userflair.txt"
+PRINTFILE = "ydsflair.txt"
 #The file where the flairs will be shown
 
 MAXPOSTS = 100
