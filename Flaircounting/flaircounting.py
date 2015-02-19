@@ -8,9 +8,9 @@ import datetime
 
 USERNAME  = "XMOBot"
 #This is the bot's Username. In order to send mail, he must have some amount of Karma.
-PASSWORD  = ""
+PASSWORD  = "PASSWORD_HERE"
 #This is the bot's Password. 
-USERAGENT = "/r/YouDontSurf Flair Counter Bot"
+USERAGENT = "/r/YouDontSurf Flair Bot v1 (/u/x_minus_one)"
 #This is a short description of what the bot does. For example "/u/GoldenSights' Newsletter bot"
 SUBREDDIT = "youdontsurf"
 #This is the sub or list of subs to scan for new posts. For a single sub, use "sub1". For multiple subreddits, use "sub1+sub2+sub3+..."
@@ -19,7 +19,7 @@ PRINTFILE = "ydsflair.txt"
 
 MAXPOSTS = 100
 #This is how many posts you want to retrieve all at once. PRAW can download 100 at a time.
-WAIT = 30
+WAIT = 240
 #This is how many seconds you will wait between cycles. The bot is completely inactive during this time.
 
 
@@ -39,11 +39,11 @@ except ImportError:
     pass
 
 sql = sqlite3.connect('sql.db')
-print('Loaded SQL Database')
+print('Loaded SQL Database...')
 cur = sql.cursor()
 
 cur.execute('CREATE TABLE IF NOT EXISTS users(NAME TEXT, FLAIR TEXT)')
-print('Loaded Completed table')
+print('Loaded Completed Table...')
 sql.commit()
 
 r = praw.Reddit(USERAGENT)
@@ -112,5 +112,5 @@ while True:
 	except EOFError:
 		print("Error:", e)
 	sql.commit()
-	print('Running again in ' + str(WAIT) + ' seconds')
+	print('Running again in ' + str(WAIT) + ' seconds...')
 	time.sleep(WAIT)
