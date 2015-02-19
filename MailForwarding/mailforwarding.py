@@ -62,7 +62,7 @@ cur.execute('CREATE TABLE IF NOT EXISTS unsent(id TEXT, subject TEXT, body TEXT)
 
 print('Logging in...')
 r = praw.Reddit(USERAGENT)
-r.login(USERNAME, PASSWORD)
+r.login(FORWARD_FROM, PASSWORD)
 
 
 def prepareforwards():
