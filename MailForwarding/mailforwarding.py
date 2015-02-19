@@ -8,20 +8,20 @@ import datetime
 
 """ USER CONFIG """
 
-FORWARD_FROM = ""
+FORWARD_FROM = "NotTheOnionBot"
 # This is the bot's username
 # This is the account FROM WHICH mail is forwarded
-PASSWORD = ""
+PASSWORD = "PASSWORD_HERE"
 # This is the bot's password
-USERAGENT = ""
+USERAGENT = "NTOBot Mail Forwarding Bot v1 (/u/x_minus_one)"
 # Describe the bot and what it does. Include your username!
 
-FORWARD_TO = ["RecipientUsername"]
+FORWARD_TO = ["x_minus_one"]
 # This is the account(s) TO WHICH mail is forwarded.
 # Adding a user to this list without their consent
 # will get you banned for unsolicited messaging.
 
-FORWARD_SUBJECT = "Forward from _sender_: _subject_"
+FORWARD_SUBJECT = "NTOBot Message! _subject_ (_sender_)"
 # This will be the subject of the forwarded mail
 # _sender_ and _subject_ will be auto-replaced if you have them
 # but these injectors are optional.
@@ -32,11 +32,11 @@ FORWARD_FOOTER = "\n\n____\n\n[Click here to reply](_replylink_)\n\n_timestamp_"
 # _replylink_ will be replaced by a message_link or a permalink
 # _timestamp_ will be replaced by the UTC HH:MM time of the original message
 
-WAIT = 60
+WAIT = 240
 # Number of seconds to wait in between each run
 # The bot is completely inactive during this time.
 
-WAIT_EACH = 10
+WAIT_EACH = 30
 # Number of seconds to wait after sending each forward
 # and before the next -- just to be nice to reddit's servers
 
@@ -55,18 +55,18 @@ try:
 except ImportError:
 	pass
 
-print('Loading unsent mail')
+print('Loading unsent mail...')
 sql = sqlite3.connect('unsent_mail.db')
 cur = sql.cursor()
 cur.execute('CREATE TABLE IF NOT EXISTS unsent(id TEXT, subject TEXT, body TEXT)')
 
-print('Logging in')
+print('Logging in...')
 r = praw.Reddit(USERAGENT)
 r.login(USERNAME, PASSWORD)
 
 
 def prepareforwards():
-	print('Checking unread')
+	print('Checking unread messages...')
 	unread = r.get_unread(limit=None)
 
 	for message in unread:
